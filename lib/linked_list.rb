@@ -7,33 +7,31 @@ class LinkedList
   end
 
   def append(node)
-  #   case
-  #     when @head == nil
+    case
+      when @head == nil
         @head = Node.new(node)
-  #     when @head != nil
-  #       current_node = @head
-  #         while current_node.next_node != nil
-  #           current_node = current_node.next_node
-  #         end
-  #         binding.pry
-  #       current_node.next_node = Node.new(node)
-  #   end
+      when @head != nil
+        current_node = @head
+          while current_node.next_node != nil
+            current_node = current_node.next_node
+          end
+          binding.pry
+        current_node.next_node = Node.new(node)
+    end
   end
 
   def count
-    accumulator = []
-    current_node = @head
-    while current_node.next_node != nil
-      accumulator << current_node
-      current_node = current_node.next_node
+    return 0 if @head.nil?
+    count = 1
+    while @head.next_node != nil
+      count += 1
     end
-    accumulator << current_node
-    accumulator.count
+    count
   end
 
   def to_string
     surname = @head.surname
-    p "The #{surname} Family"
+    return "The #{surname} Family"
   end
 
 end

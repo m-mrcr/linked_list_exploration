@@ -33,4 +33,8 @@ class LinkedListTest < MiniTest::Test
     assert_equal "The West Family", @list.to_string
   end
 
+  def test_it_
+
+  end
+
 end
