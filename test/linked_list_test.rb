@@ -28,4 +28,9 @@ class LinkedListTest < MiniTest::Test
     assert_equal 1, @list.count
   end
 
+  def test_it_can_display_attribute_of_single_node_as_part_of_string
+    @list.append("West")
+    assert_equal "The West Family", @list.to_string
+  end
+
 end

@@ -31,4 +31,9 @@ class LinkedList
     accumulator.count
   end
 
+  def to_string
+    surname = @head.surname
+    p "The #{surname} Family"
+  end
+
 end
