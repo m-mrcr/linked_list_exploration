@@ -30,11 +30,22 @@ class LinkedListTest < MiniTest::Test
 
   def test_it_can_display_attribute_of_single_node_as_part_of_string
     @list.append("West")
-    assert_equal "The West Family", @list.to_string
+    assert_equal "The West family", @list.to_string
   end
 
-  def test_it_
+  def test_it_can_append_more_than_one_node
+    @list.append("Rhodes")
+    @list.append("Hardy")
+    assert_equal 2, @list.count
+  end
 
+  def test_it_can_add_multiple_surnames_to_string
+    @list.append("Rhodes")
+    @list.append("Hardy")
+
+    expected = "The Rhodes family, followed by the Hardy family"
+
+    assert_equal expected, @list.to_string
   end
 
 end

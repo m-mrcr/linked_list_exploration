@@ -7,31 +7,43 @@ class LinkedList
   end
 
   def append(node)
-    case
-      when @head == nil
-        @head = Node.new(node)
-      when @head != nil
-        current_node = @head
-          while current_node.next_node != nil
-            current_node = current_node.next_node
-          end
-          binding.pry
-        current_node.next_node = Node.new(node)
+    if @head == nil
+      @head = Node.new(node)
+    else current_node = @head
+        while current_node.next_node != nil
+          current_node = current_node.next_node
+        end
+      current_node.next_node = Node.new(node)
     end
   end
 
   def count
-    return 0 if @head.nil?
-    count = 1
-    while @head.next_node != nil
-      count += 1
-    end
-    count
+    accumulate.count
   end
 
   def to_string
-    surname = @head.surname
-    return "The #{surname} Family"
+    string = ""
+    return "Emtpy Caravan" if accumulate == []
+    accumulate.each_with_index do |node, index|
+      if index == 0
+        string += "The #{@head.surname.capitalize} family"
+      else
+        string += ", followed by the #{node.surname.capitalize} family"
+      end
+    end
+    string
+  end
+
+  def accumulate
+    return [] if @head == nil
+    accumulator = []
+    current_node = @head
+    while current_node.next_node != nil
+      accumulator << current_node
+      current_node = current_node.next_node
+    end
+    accumulator << current_node
+    accumulator
   end
 
 end
