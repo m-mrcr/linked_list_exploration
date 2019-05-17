@@ -23,11 +23,9 @@ class LinkedListTest < MiniTest::Test
     assert_instance_of Node, @list.head
   end
 
-  def test_it_can_display_count_of_its_comprised_nodes
+  def test_it_can_display_count_of_single_appended_node
     @list.append("West")
-    @list.append("North")
-    @list.append("South")
-    assert_equal 3, @list.count
+    assert_equal 1, @list.count
   end
 
 end
